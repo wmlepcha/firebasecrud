@@ -1,0 +1,45 @@
+<table class="ntable">
+  <thead class="theader">
+    <tr>
+      <th>Full name</th>
+      <th>
+        Whatsapp <br />
+        Number
+      </th>
+      <th>Contact <br />Number</th>
+      <th>Nationality</th>
+      <th>City <br />coming from</th>
+      <th>Select cottage</th>
+      <th>Total <br />Guests</th>
+      <th>Email</th>
+      <th>
+        Arrival<br />
+        Date
+      </th>
+      <th>Departure <Br />Date</th>
+      <th>Cancelled <br />Booking</th>
+      <th>Confirmed <br />Booking</th>
+    </tr>
+  </thead>
+
+  <tbody class="scroll">
+    <tr *ngFor="let user of userData">
+      <td>{{ user.username }}</td>
+      <td>{{ user.whatsappNo }}</td>
+      <td>{{ user.contactNo }}</td>
+      <td>{{ user.nationality }}</td>
+      <td>{{ user.cityComingFrom }}</td>
+      <td>{{ user.cottage }}</td>
+      <td>{{ user.nof }}</td>
+      <td>{{ user.email }}</td>
+      <td>{{ user.arrivalDate }}</td>
+      <td>{{ user.departureDate }}</td>
+      <td>
+        <span (click)="cancelBooking(user)" class="red-button">❌</span>
+      </td>
+      <td>
+        <span (click)="approvedBooking(user)" class="green-button">✔️</span>
+      </td>
+    </tr>
+  </tbody>
+</table>

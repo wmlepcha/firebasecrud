@@ -1,1 +1,28 @@
 /* You can add global styles to this file, and also import other style files */
+@import url("https://fonts.googleapis.com/css2?family=Advent+Pro&family=Londrina+Solid&family=Satisfy&display=swap");
+
+$titleFont: "Londrina Solid", cursive;
+
+$paraFont: "Advent Pro", sans-serif;
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+}
+
+body {
+  background-color: #1f1717;
+  form {
+    width: 300px;
+    border: 2px solid grey;
+    padding: 15px !important;
+    .fa,
+    .fa-solid,
+    .fa-brands {
+      background-color: white;
+      height: 100%;
+      padding: 10px;
+      border: 1px solid black;
+    }
+  }
+}

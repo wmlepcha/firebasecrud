@@ -1,0 +1,97 @@
+@import "../../styles.scss";
+
+.dcontainer {
+  width: 100%;
+  height: 100%;
+  background-color: #1f1717 !important;
+  .adminheader {
+    height: 10vh;
+    width: 100%;
+    border-bottom: 1px solid #fcf5ed;
+    position: fixed;
+    top: 0;
+    left: 0;
+    padding-left: 50px;
+    padding-right: 50px;
+    display: flex;
+    .leftside {
+      height: 100%;
+      width: 100%;
+      display: flex;
+      align-items: center;
+      justify-content: flex-start;
+      color: #fcf5ed;
+      font-family: $titleFont;
+      text-transform: uppercase;
+      img {
+        height: 50px !important;
+        width: 50px;
+      }
+    }
+    .rightside {
+      height: 100%;
+      width: 100%;
+      display: flex;
+      align-items: center;
+      justify-content: flex-end;
+      color: #fcf5ed;
+      font-family: $titleFont;
+    }
+  }
+  .firstcontainer {
+    position: fixed;
+    left: 0;
+    top: 50px;
+    height: 50vh;
+    width: 100%;
+    z-index: 1;
+    background-color: #1f1717 !important;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    .card {
+      height: 250px;
+      width: 250px;
+      background-color: white;
+      margin: 20px;
+      box-shadow: rgba(9, 30, 66, 0.25) 0px 4px 8px -2px,
+        rgba(9, 30, 66, 0.08) 0px 0px 0px 1px;
+      border-radius: 12px;
+      border: 1px solid #ffffff;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-direction: column;
+      h2 {
+        color: #ffffff;
+        font-size: 18px;
+        margin-top: 10px;
+      }
+      .fa-cus {
+        font-size: 60px;
+      }
+    }
+
+    .card:nth-child(1) {
+      background-color: #b2533e;
+    }
+    .card:nth-child(2) {
+      background-color: #ee9322;
+    }
+    .card:nth-child(3) {
+      background-color: #ec53b0;
+    }
+    .card:nth-child(4) {
+      background-color: #186f65;
+    }
+  }
+}
+.tablecontainer {
+  position: fixed;
+  top: 50vh; /* Space for the fixed header */
+  padding-left: 50px;
+  padding-right: 50px;
+  width: 100%;
+  overflow-y: auto; /* Enable vertical scrolling for the table body */
+  max-height: 90vh;
+}

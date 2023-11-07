@@ -3,16 +3,33 @@ import { BrowserModule } from '@angular/platform-browser';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
+import { initializeApp, provideFirebaseApp } from '@angular/fire/app';
+import { environment } from '../environments/environment';
+import { provideFirestore, getFirestore } from '@angular/fire/firestore';
+import { BookingFormComponent } from './booking-form/booking-form.component';
+import { DashboardComponent } from './dashboard/dashboard.component';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { UserdataComponent } from './userdata/userdata.component';
+import { SubmissionCountService } from './submission-count.service';
+import { CountVisitorsComponent } from './count-visitors/count-visitors.component';
 
 @NgModule({
   declarations: [
-    AppComponent
+    AppComponent,
+    BookingFormComponent,
+    DashboardComponent,
+    UserdataComponent,
+    CountVisitorsComponent,
   ],
   imports: [
+    FormsModule,
     BrowserModule,
-    AppRoutingModule
+    AppRoutingModule,
+    ReactiveFormsModule,
+    provideFirebaseApp(() => initializeApp(environment.firebase)),
+    provideFirestore(() => getFirestore()),
   ],
-  providers: [],
-  bootstrap: [AppComponent]
+  providers: [[SubmissionCountService]],
+  bootstrap: [AppComponent],
 })
-export class AppModule { }
+export class AppModule {}

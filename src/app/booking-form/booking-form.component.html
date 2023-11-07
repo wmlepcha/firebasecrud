@@ -1,0 +1,251 @@
+<div class="container">
+  <form [formGroup]="bookingForm" (ngSubmit)="submitForm()" class="bform">
+    <!-- Username -->
+    <div class="form-group">
+      <div class="fieldwrap">
+        <i class="fa fa-user"></i>
+        <input
+          placeholder="Full Name"
+          type="text"
+          id="username"
+          formControlName="username"
+          class="form-control"
+        />
+      </div>
+      <div
+        class="text-danger"
+        style="color: red; font-size: 10px"
+        *ngIf="
+          bookingForm.get('username')?.hasError('required') &&
+          bookingForm.get('username')?.touched
+        "
+      >
+        <i class="fas fa-exclamation-circle"></i> Username is required.
+      </div>
+    </div>
+
+    <!-- WhatsApp Number -->
+    <div class="form-group">
+      <div class="fieldwrap">
+        <i class="fa-brands fa-whatsapp"></i>
+        <input
+          placeholder="Whatsapp Number"
+          type="tel"
+          id="whatsappNo"
+          formControlName="whatsappNo"
+          class="form-control"
+        />
+      </div>
+      <div
+        class="text-danger"
+        style="color: red; font-size: 10px"
+        *ngIf="
+          bookingForm.get('whatsappNo')?.hasError('required') &&
+          bookingForm.get('whatsappNo')?.touched
+        "
+      >
+        <i class="fas fa-exclamation-circle"></i> WhatsApp Number is required.
+      </div>
+    </div>
+
+    <!-- Contact Number -->
+    <div class="form-group">
+      <div class="fieldwrap">
+        <i class="fa fa-phone"></i>
+        <input
+          placeholder="Contact Number"
+          type="tel"
+          id="contactNo"
+          formControlName="contactNo"
+          class="form-control"
+        />
+      </div>
+      <div
+        class="text-danger"
+        style="color: red; font-size: 10px"
+        *ngIf="
+          bookingForm.get('contactNo')?.hasError('required') &&
+          bookingForm.get('contactNo')?.touched
+        "
+      >
+        <i class="fas fa-exclamation-circle"></i> Contact Number is required.
+      </div>
+    </div>
+
+    <!-- Nationality -->
+    <div class="form-group">
+      <div class="field-wrap">
+        <i class="fa fa-globe"></i>
+        <input
+          placeholder="Nationality"
+          type="text"
+          id="nationality"
+          formControlName="nationality"
+          class="form-control"
+        />
+      </div>
+      <div
+        class="text-danger"
+        style="color: red; font-size: 10px"
+        *ngIf="
+          bookingForm.get('nationality')?.hasError('required') &&
+          bookingForm.get('nationality')?.touched
+        "
+      >
+        <i class="fas fa-exclamation-circle"></i> Nationality is required.
+      </div>
+    </div>
+
+    <!-- City Coming From -->
+    <div class="form-group">
+      <div class="fieldwrap">
+        <i class="fa fa-building"></i>
+        <input
+          placeholder="City Coming from"
+          type="text"
+          id="cityComingFrom"
+          formControlName="cityComingFrom"
+          class="form-control"
+        />
+      </div>
+      <div
+        class="text-danger"
+        style="color: red; font-size: 10px"
+        *ngIf="
+          bookingForm.get('cityComingFrom')?.hasError('required') &&
+          bookingForm.get('cityComingFrom')?.touched
+        "
+      >
+        <i class="fas fa-exclamation-circle"></i> City Coming From is required.
+      </div>
+    </div>
+
+    <!-- Cottage (Dropdown) -->
+    <div class="form-group">
+      <div class="fieldwrap">
+        <i class="fa-solid fa-bed"></i>
+        <select id="cottage" formControlName="cottage" class="form-control">
+          <option value="default">Select Cottage</option>
+          <option value="Cottage A">Cottage A</option>
+          <option value="Cottage B">Cottage B</option>
+          <option value="Cottage C">Cottage C</option>
+        </select>
+      </div>
+      <div
+        class="text-danger"
+        style="color: red; font-size: 10px"
+        *ngIf="
+          bookingForm.get('cottage')?.hasError('required') &&
+          bookingForm.get('cottage')?.touched
+        "
+      >
+        <i class="fas fa-exclamation-circle"></i> Cottage is required.
+      </div>
+    </div>
+
+    <!-- No of Guests (Dropdown) -->
+    <div class="form-group">
+      <div class="fieldwrap">
+        <i class="fa-solid fa-people-group"></i>
+        <select id="nof" formControlName="nof" class="form-control">
+          <option value="default">Select No of Persons Arriving</option>
+          <option value="1">1</option>
+          <option value="2">2</option>
+          <option value="3">3</option>
+          <option value="4">4</option>
+          <option value="5">5</option>
+          <option value="6+">6+</option>
+        </select>
+      </div>
+      <div
+        class="text-danger"
+        style="color: red; font-size: 10px"
+        *ngIf="
+          bookingForm.get('nof')?.hasError('required') &&
+          bookingForm.get('nof')?.touched
+        "
+      >
+        <i class="fas fa-exclamation-circle"></i> No. of Guests is required.
+      </div>
+    </div>
+
+    <!-- Arrival Date (Calendar) -->
+    <div class="form-group">
+      <input
+        type="date"
+        id="arrivalDate"
+        formControlName="arrivalDate"
+        class="form-control"
+      />
+      <div
+        class="text-danger"
+        style="color: red; font-size: 10px"
+        *ngIf="
+          bookingForm.get('arrivalDate')?.hasError('required') &&
+          bookingForm.get('arrivalDate')?.touched
+        "
+      >
+        <i class="fas fa-exclamation-circle"></i> Arrival Date is required.
+      </div>
+    </div>
+
+    <!-- Departure Date (Calendar) -->
+    <div class="form-group">
+      <input
+        type="date"
+        id="departureDate"
+        formControlName="departureDate"
+        class="form-control"
+      />
+      <div
+        class="text-danger"
+        style="color: red; font-size: 10px"
+        *ngIf="
+          bookingForm.get('departureDate')?.hasError('required') &&
+          bookingForm.get('departureDate')?.touched
+        "
+      >
+        <i class="fas fa-exclamation-circle"></i> Departure Date is required.
+      </div>
+    </div>
+
+    <!-- Email -->
+    <div class="form-group">
+      <div class="fieldwrap">
+        <i class="fa-solid fa-envelope"></i>
+
+        <input
+          type="email"
+          id="email"
+          formControlName="email"
+          class="form-control"
+        />
+      </div>
+      <div
+        class="text-danger"
+        style="color: red; font-size: 10px"
+        *ngIf="
+          bookingForm.get('email')?.hasError('required') &&
+          bookingForm.get('email')?.touched
+        "
+      >
+        <i class="fas fa-exclamation-circle"></i> Email is required.
+      </div>
+      <div
+        class="text-danger"
+        style="color: red; font-size: 10px"
+        *ngIf="
+          bookingForm.get('email')?.hasError('email') &&
+          bookingForm.get('email')?.touched
+        "
+      >
+        <i class="fas fa-exclamation-circle"></i> Please enter a valid email.
+      </div>
+    </div>
+
+    <!-- Book Now Button -->
+    <button type="submit" class="btn btn-primary">
+      <i class="fas fa-check"></i> Book Now
+    </button>
+  </form>
+</div>

@@ -1,0 +1,14 @@
+{
+  "targets": {
+    "booking-demo-31681": {
+      "hosting": {
+        "booking-platform": [
+          "booking-demo-31681"
+        ]
+      }
+    }
+  },
+  "projects": {
+    "default": "booking-demo-31681"
+  }
+}

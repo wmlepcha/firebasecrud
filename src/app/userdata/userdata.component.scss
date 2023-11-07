@@ -1,0 +1,33 @@
+.ntable {
+  width: 100%;
+}
+
+.scroll {
+  color: #dddddd;
+  max-height: calc(
+    90vh - 50px
+  ); /* 90% of viewport height minus header height */
+  overflow-y: auto; /* Enable vertical scrolling */
+  border: 1px solid #dddddd; /* Add borders around the scrollable area */
+  table {
+    width: 100%;
+    border-collapse: collapse;
+  }
+
+  td {
+    border: 1px solid #dddddd;
+    text-align: left;
+    padding: 8px;
+  }
+}
+.theader {
+  border: 1px solid red !important;
+  position: sticky;
+  top: 0;
+  z-index: 1;
+  background-color: #dddddd;
+  font-size: 15px;
+  tr {
+    height: 50px;
+  }
+}
