@@ -11,7 +11,7 @@ import {
   getDoc,
   setDoc,
 } from '@angular/fire/firestore';
-
+import { CounterService } from '../counter.service';
 import { Observable } from 'rxjs';
 
 @Component({
@@ -23,7 +23,10 @@ export class UserdataComponent {
   userData: any[] = [];
   userIDs: string[] = []; // Array to store unique IDs
 
-  constructor(private firestore: Firestore) {
+  constructor(
+    private firestore: Firestore,
+    private counterService: CounterService
+  ) {
     this.getData();
   }
 
@@ -76,6 +79,7 @@ export class UserdataComponent {
     } catch (error) {
       console.error('Error canceling booking:', error);
     }
+    this.counterService.incrementCancelledCount();
   }
   async approvedBooking(user: any) {
     const originalCollection = collection(this.firestore, 'bookings');
@@ -108,5 +112,6 @@ export class UserdataComponent {
     } catch (error) {
       console.error('Error canceling booking:', error);
     }
+    this.counterService.incrementApprovedCount();
   }
 }

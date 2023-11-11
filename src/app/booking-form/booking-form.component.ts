@@ -6,6 +6,7 @@ import { ChangeDetectorRef } from '@angular/core';
 
 import { Observable } from 'rxjs';
 import { SubmissionCountService } from '../submission-count.service';
+import { CounterService } from '../counter.service';
 
 @Component({
   selector: 'app-booking-form',
@@ -19,7 +20,8 @@ export class BookingFormComponent {
     private firestore: Firestore,
     private fb: FormBuilder,
     private submissionCountService: SubmissionCountService,
-    private cd: ChangeDetectorRef
+    private cd: ChangeDetectorRef,
+    private counterService: CounterService
   ) {
     this.bookingForm = this.fb.group({
       username: ['', Validators.required],
@@ -37,13 +39,7 @@ export class BookingFormComponent {
   ngOnInit() {}
 
   submitForm() {
-    this.submissionCountService.incrementCount();
     if (this.bookingForm.valid) {
-      console.log(
-        'Count after increment:',
-        this.submissionCountService.getCount()
-      );
-      this.cd.detectChanges();
       const formData = this.bookingForm.value;
 
       // Create a reference to the Firestore collection

@@ -6,18 +6,21 @@ import { AppComponent } from './app.component';
 import { initializeApp, provideFirebaseApp } from '@angular/fire/app';
 import { environment } from '../environments/environment';
 import { provideFirestore, getFirestore } from '@angular/fire/firestore';
-import { BookingFormComponent } from './booking-form/booking-form.component';
 import { DashboardComponent } from './dashboard/dashboard.component';
+import { BookingFormComponent } from './booking-form/booking-form.component';
+
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { UserdataComponent } from './userdata/userdata.component';
 import { SubmissionCountService } from './submission-count.service';
 import { CountVisitorsComponent } from './count-visitors/count-visitors.component';
+import { CounterService } from './counter.service';
 
 @NgModule({
   declarations: [
     AppComponent,
-    BookingFormComponent,
     DashboardComponent,
+    BookingFormComponent,
+
     UserdataComponent,
     CountVisitorsComponent,
   ],
@@ -29,7 +32,8 @@ import { CountVisitorsComponent } from './count-visitors/count-visitors.componen
     provideFirebaseApp(() => initializeApp(environment.firebase)),
     provideFirestore(() => getFirestore()),
   ],
-  providers: [[SubmissionCountService]],
+  providers: [CounterService],
+
   bootstrap: [AppComponent],
 })
 export class AppModule {}
